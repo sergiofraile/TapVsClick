@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Tap VS Click</title>
+   
+   
+</head>
+<body>
+   <button id="eventButton" type="button">Tap VS Click</button>
+   <script type="text/javascript" src="./js/jquery.js"></script>  
+   <script type="text/javascript" src="./js/jquery.hammer.min.js"></script>
+   <script type="text/javascript">
+   $(document).ready(function() {
+      var tapTimestamp, clickTimestamp;
+
+      $('#eventButton').hammer().on("tap", function(event) {
+         tapTimestamp = new Date().getTime();
+      });
+
+      $('#eventButton').click(function(event) {
+         clickTimestamp = new Date().getTime();
+         alert('Esta es la diferencia:' + (clickTimestamp - tapTimestamp));
+      });
+   });
+   </script>
+</body>
+</html>
